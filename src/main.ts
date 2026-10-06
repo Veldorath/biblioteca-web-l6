@@ -1,9 +1,9 @@
-import { bootstrapApplication } from '@angular/platform-browser';
+﻿import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
 import { Amplify } from 'aws-amplify';
 
-// Tramo 8.3 · Amplify.configure va ANTES de bootstrapApplication: si el
+// Tramo 8.3 .· Amplify.configure va ANTES de bootstrapApplication: si el
 // primer componente pregunta por la sesion antes de esto, el error es
 // "AuthUserPoolException: Auth UserPool not configured".
 //
@@ -13,11 +13,11 @@ import { Amplify } from 'aws-amplify';
 Amplify.configure({
   Auth: {
     Cognito: {
-      userPoolId:       'us-east-1_XXXXXXXXX',
-      userPoolClientId: 'XXXXXXXXXXXXXXXXXXXXXXXXXX',
+      userPoolId:       'us-east-1_Ig9QYeaNc',
+      userPoolClientId: '6o1vai4861o4jhoudr4k2s2b9n',
       loginWith: {
         oauth: {
-          domain:          'biblioteca-XXX-0000.auth.us-east-1.amazoncognito.com',
+          domain:          'us-east-1ig9qyeanc.auth.us-east-1.amazoncognito.com',
           scopes:          ['openid', 'profile', 'biblioteca/libros.leer'],
           redirectSignIn:  ['http://localhost:4200/callback'],
           redirectSignOut: ['http://localhost:4200'],
@@ -34,3 +34,4 @@ Amplify.configure({
 import 'aws-amplify/auth/enable-oauth-listener';
 
 bootstrapApplication(App, appConfig).catch((err) => console.error(err));
+
